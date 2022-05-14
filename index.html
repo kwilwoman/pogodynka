@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Prognoza pogody</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="PasekGórny">
+        <h1>PROGNOZA POGODY</h1>
+    </div>
+    <div class="Container">
+        <div class="wyszukiwarkaMiast">
+            <div id="miasta"></div>
+
+        </div>
+        <div class="Kolumny">
+            <div class="Kolumna" id="kolumnaTeraz">
+                <p class="kiedy">Aktualna pogoda: <span id="aktualizacja"></span></p>
+                <img class="elementIkonka" src="images/slonce.png">
+                <h3 class="temperatura"><span class="wartoscTemperatura"></span><img src="images/loading.svg" class="loading" />°C</h3>
+                <p class="rozwinSzczegoly" onclick="pokazSzczegoly(event)"> Prognoza szczególowa</p>
+                <div class="szczegoly">
+                    <h4>WIATR</h4>
+                    <p>prędkość:<span class="wartoscWiatrPredkosc"></span>/km/h</p>
+                    <p>stopnie:<span class="wartoscWiatrKierunek"></span>°</p>
+                    <p>kierunek:<span class="wartoscWiatrKierunekSlownie"></span></p>
+                    <h4>DESZCZ I ZACHMURZENIE</h4>
+                    <p><span class="wartoscZachmurzenie"></span>% nieba pokrytego chmurami</p>
+                    <p><span class="wartoscOpis"></span></p>
+                    <h4>WSCHÓD I ZACHÓD SŁOŃCA</h4>
+                    <p>wschód słońca: <span class="wartoscWschodSlonca"></span></p>
+                    <p>zachód słońca: <span class="wartoscZachodSlonca"></span></p>
+                </div>
+            </div>
+            <div class="Kolumna" id="kolumnaDzis">
+                <p class="kiedy">Dziś</p>
+                <img class="elementIkonka" src="images/slonce.png">
+                <h3 class="temperatura"><span class="wartoscTemperatura"></span><img src="images/loading.svg" class="loading" />°C</h3>
+                <p class="rozwinSzczegoly" onclick="pokazSzczegoly(event)"> Prognoza szczególowa</p>
+                <div class="szczegoly">
+                    <h4>WIATR</h4>
+                    <p>prędkość:<span class="wartoscWiatrPredkosc"></span>/km/h</p>
+                    <p>stopnie:<span class="wartoscWiatrKierunek"></span>°</p>
+                    <p>kierunek:<span class="wartoscWiatrKierunekSlownie"></span></p>
+                    <h4>DESZCZ I ZACHMURZENIE</h4>
+                    <p><span class="wartoscZachmurzenie"></span>% nieba pokrytego chmurami</p>
+                    <p><span class="wartoscOpis"></span></p>
+                    <h4>WSCHÓD I ZACHÓD SŁOŃCA</h4>
+                    <p>wschód słońca: <span class="wartoscWschodSlonca"></span></p>
+                    <p>zachód słońca: <span class="wartoscZachodSlonca"></span></p>
+                </div>
+            </div>
+            <div class="Kolumna" id="kolumnaJutro">
+                <p class="kiedy">Jutro</p>
+                <img class="elementIkonka" src="images/slonce.png">
+                <h3 class="temperatura"><span class="wartoscTemperatura"></span><img src="images/loading.svg" class="loading" />°C</h3>
+                <p class="rozwinSzczegoly" onclick="pokazSzczegoly(event)"> Prognoza szczególowa</p>
+                <div class="szczegoly">
+                    <h4>WIATR</h4>
+                    <p>prędkość:<span class="wartoscWiatrPredkosc"></span>/km/h</p>
+                    <p>stopnie:<span class="wartoscWiatrKierunek"></span>°</p>
+                    <p>kierunek:<span class="wartoscWiatrKierunekSlownie"></span></p>
+                    <h4>DESZCZ I ZACHMURZENIE</h4>
+                    <p><span class="wartoscZachmurzenie"></span>% nieba pokrytego chmurami</p>
+                    <p><span class="wartoscOpis"></span></p>
+                    <h4>WSCHÓD I ZACHÓD SŁOŃCA</h4>
+                    <p>wschód słońca: <span class="wartoscWschodSlonca"></span></p>
+                    <p>zachód słońca: <span class="wartoscZachodSlonca"></span></p>
+                </div>
+
+            </div>
+            <div class="Kolumna" id="kolumnaPojutrze">
+                <p class="kiedy">Pojutrze</p>
+                <img class="elementIkonka" src="images/slonce.png">
+                <h3 class="temperatura"><span class="wartoscTemperatura"></span><img src="images/loading.svg" class="loading" />°C</h3>
+                <p class="rozwinSzczegoly" onclick="pokazSzczegoly(event)"> Prognoza szczególowa</p>
+                <div class="szczegoly">
+                    <h4>WIATR</h4>
+                    <p>prędkość:<span class="wartoscWiatrPredkosc"></span>/km/h</p>
+                    <p>stopnie:<span class="wartoscWiatrKierunek"></span>°</p>
+                    <p>kierunek:<span class="wartoscWiatrKierunekSlownie"></span></p>
+                    <h4>DESZCZ I ZACHMURZENIE</h4>
+                    <p><span class="wartoscZachmurzenie"></span>% nieba pokrytego chmurami</p>
+                    <p><span class="wartoscOpis"></span></p>
+                    <h4>WSCHÓD I ZACHÓD SŁOŃCA</h4>
+                    <p>wschód słońca: <span class="wartoscWschodSlonca"></span></p>
+                    <p>zachód słońca: <span class="wartoscZachodSlonca"></span></p>
+                </div>
+           
+
+        </div>
+
+        <!-- <button id="przycisk">Pobierz prognozę pogody!</button>
+    <h2>Pogoda aktualna</h2>
+    <div class="pogodaAktualna">
+      <div>Temperatura: <span class="temp"></span></div>
+      <div>Zachmurzenie: <span class="zachmurzenie"></span></div>
+    </div>
+    <h2>Prognoza na jutro</h2>
+    <div class="pogodaJutro">
+      <div>Temperatura: <span class="temp"></span></div>
+      <div>Zachmurzenie: <span class="zachmurzenie"></span></div>
+    </div> -->
+        
+
+</body>
+<style>
+    * {
+        font-family: 'Open Sans', sans-serif;
+        box-sizing: border-box;
+    }
+    .loading {
+        display: none;
+    }
+    .elementIkonka {
+        width: 40px;
+        height: 40px;
+    }
+    #pokazPogode {
+        height: 40px;
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+    }
+    .PasekGórny {
+        width: 100%;
+        height: 60px;
+        background-color: bisque;
+    }
+
+    .Container {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 20px;
+    }
+
+    #wyszkiwarkaMiastInput {
+        width: 50%;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        color: darkmagenta;
+
+    }
+
+    .Kolumny {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Kolumna {
+        width: 24%;
+        display: inline-block;
+        vertical-align: top;
+        border: 1px solid gray;
+        border-radius: 5px;
+        /* height: 700px; */
+        padding: 10px;
+    }
+
+    .temperatura {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .kiedy {
+        height: 40px;
+    }
+
+    .rozwinSzczegoly {
+        color: blue;
+        cursor: pointer;
+    }
+
+    .szczegoly p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .szczegoly {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s;
+    }
+    .rozwiniety {
+        height: 400px;
+    }
+</style>
+
+</html>
